@@ -209,10 +209,18 @@ The following analyses are planned against the Gold layer to demonstrate busines
 
 ---
 
+## Author
+
+**Timothy Akintayo**
+
+Data Analyst
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/timothy-akintayo)
+[![Portfolio](https://img.shields.io/badge/Portfolio-View-lightgrey?style=flat)](https://timothyakintayo.github.io)
+
+---
+
 ## GDPR Clause
 
 *Data used in this project is fictitious and generated for demonstration purposes. No real personal data is processed. All customer identifiers, emails, and demographic information are synthetic.*
 
----
-
-*Built by Timothy Akintayo — [LinkedIn](https://linkedin.com/in/timothy-akintayo) | [GitHub Portfolio](https://timothyakintayo.github.io)*
