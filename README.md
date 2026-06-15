@@ -107,8 +107,12 @@ The Gold layer implements a star schema:
 - **fact_orders** — transaction grain: one row per transaction with customer, product, quantity, amount, store type, payment method
 - **dim_customer** — customer attributes including type, country, demographics
 - **dim_product** — product attributes including category, brand, price, rating, active status
-- **VW_DAILY_SALES_ANALYSIS** — pre-aggregated daily sales view combining all three entities
-- **VW_CUSTOMER_PRODUCT_AFFINITY** — customer-product purchase frequency and spend patterns by month
+
+
+### Mart 
+- **mart.vw_daily_sales_analysis** — pre-aggregated daily sales view combining all three entities
+- **mart.vw_customer_product_affinity** — customer-product purchase frequency and spend patterns by month
+- 
 
 ### Additional Snowflake Features Used
 - **Time Travel** — available for data recovery and historical analysis across all layers
@@ -124,13 +128,12 @@ pacificretail-snowflake-pipeline/
 │
 ├── sql/
 │   ├── 01_setup/
-│   │   ├── create_database_schemas.sql
-│   │   └── create_file_formats.sql
+│   │   ├── create_db_and_bronze_schema.sql
+│   │   └── create_stage.sql
 │   ├── 02_bronze/
-│   │   ├── create_stage.sql
-│   │   ├── create_raw_tables.sql
-│   │   ├── create_tasks.sql
-│   │   └── create_streams.sql
+│   │   ├── customer_load.sql
+│   │   ├── product_load.sql
+│   │   └── orders_load.sql
 │   ├── 03_silver/
 │   │   ├── create_silver_tables.sql
 │   │   ├── proc_customer_merge.sql
