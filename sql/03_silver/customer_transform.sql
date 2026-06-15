@@ -1,6 +1,3 @@
-USE DATABASE pacificretail_db;
-USE SCHEMA silver;
-
 CREATE OR REPLACE PROCEDURE process_customer_changes()
 RETURNS STRING
 LANGUAGE SQL

@@ -68,7 +68,7 @@ Snowflake — pacificretail_db
     ▼
 BI & Analytics Layer
     ├── Power BI / Tableau dashboards connecting to Gold layer and data marts
-    └── SQL-based business analysis
+    └── SQL-based business analysis: Customer Analytics, Product Analytics, Trend and Sales Analysis
 ```
 
 ---
@@ -126,6 +126,17 @@ The Gold layer implements a star schema:
 ```
 pacificretail-snowflake-pipeline/
 │
+├── dashboard/
+├── data/
+│   │   ├── customer.csv
+│   │   ├── products.json
+│   │   └──	transaction.snappy.parquet
+├── data_architecture/
+│   │   └──	pacific_retail_data_architectuture.png
+├── docs/
+│   │   └──	
+├── insights/
+│   │   └──
 ├── sql/
 │   ├── 01_setup/
 │   │   ├── create_db_and_bronze_schema.sql
@@ -134,20 +145,23 @@ pacificretail-snowflake-pipeline/
 │   │   ├── customer_load.sql
 │   │   ├── product_load.sql
 │   │   └── orders_load.sql
+│   │   └── stream_creation.sql
 │   ├── 03_silver/
-│   │   ├── create_silver_tables.sql
-│   │   ├── proc_customer_merge.sql
-│   │   ├── proc_product_merge.sql
-│   │   ├── proc_order_merge.sql
-│   │   └── create_silver_tasks.sql
+│   │   ├── silver_schema_creation.sql
+│   │   ├── silver_table_creation.sql
+│   │   ├── customer_transform.sql
+│   │   ├── product_transform.sql
+│   │   └── orders_transform.sql
 │   ├── 04_gold/
 │   │   ├── create_fact_orders.sql
 │   │   ├── create_dim_customer.sql
 │   │   ├── create_dim_product.sql
-│   │   ├── vw_daily_sales_analysis.sql
-│   │   └── vw_customer_product_affinity.sql
+│   │   ├── gold_vw_daily_sales_analysis.sql
+│   │   └── gold_vw_customer_product_affinity.sql
 │   └── 05_analysis/
-│       └── business_queries.sql
+│       ├── customer_analytics.sql
+│       ├── product_analytics.sql
+│       └── trend_and_sales_analytics.sql
 │
 └── README.md
 ```
@@ -186,7 +200,7 @@ The following analyses are planned against the Gold layer to demonstrate busines
 
 ## What I Would Do Differently
 
-**1. Data volume mismatch:** The source course described 5 million customers, 100,000 products, and 500,000 daily transactions. The actual dataset contained 1,000, 1,000, and 10,000 respectively. For production scale, the architecture is unchanged — Snowflake's elastic compute handles the larger volumes — but the mismatch is worth noting for anyone reproducing this work.
+**1. Data volume mismatch:** The dataset contained 1,000, 1,000, and 10,000 respectively. For production scale with large datasets the architecture is unchanged — Snowflake's elastic compute handles the larger volumes, making the artchitecture reproducible for large data volume.
 
 **2. Add a BI layer:** The Gold layer is structured and ready for Power BI or Tableau connection. Given time constraints I prioritised getting the pipeline architecture right over rushing visualisations on top of incomplete engineering. A dashboard will be added once the SQL analysis layer is complete.
 

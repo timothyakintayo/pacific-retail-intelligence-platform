@@ -1,6 +1,4 @@
-use pacificretail_db.gold;
-
-CREATE OR REPLACE VIEW VW_DAILY_SALES_ANALYSIS AS
+CREATE OR REPLACE VIEW mart.vw_daily_sales_analysis AS
 SELECT 
     o.transaction_date,
     p.product_id,
@@ -25,4 +23,24 @@ GROUP BY
     c.customer_type;
 
 
-select * from VW_DAILY_SALES_ANALYSIS;
+-- Sales Overview
+CREATE OR REPLACE VIEW mart.vw_sales_overview AS
+
+SELECT
+    transaction_date,
+
+    COUNT(DISTINCT transaction_id) AS total_orders,
+
+    COUNT(DISTINCT customer_id) AS total_customers,
+
+    SUM(quantity) AS total_quantity,
+
+    ROUND(SUM(total_amount),2) AS total_revenue,
+
+    ROUND(
+        AVG(total_amount),
+        2
+    ) AS avg_order_value
+
+FROM gold.fact_orders
+GROUP BY transaction_date;

@@ -1,6 +1,5 @@
-use pacificretail_db.gold;
 
-CREATE OR REPLACE VIEW VW_CUSTOMER_PRODUCT_AFFINITY AS
+CREATE OR REPLACE VIEW mart.vw_customer_product_affinity AS
 SELECT 
     c.customer_id,
     c.customer_type,
@@ -23,5 +22,3 @@ GROUP BY
     p.name,
     p.category,
     DATE_TRUNC('MONTH', o.transaction_date);
-
-select * from VW_CUSTOMER_PRODUCT_AFFINITY;
