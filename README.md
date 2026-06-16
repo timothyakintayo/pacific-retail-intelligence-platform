@@ -7,7 +7,7 @@
 
 Pacific Retail is a multinational retail company operating across 15 countries in North America and Europe, with 1,000+ active customers, 1,000 products, and a growing transaction volume processed daily. The business faced a critical data infrastructure problem: customer data, product catalogues, and transaction records lived in separate systems with no unified view, batch processing created 24-hour delays in sales reporting, and data quality inconsistencies across countries made cross-channel reporting unreliable.
 
-This project builds a modern, cloud-native data platform on **Azure Data Lake Storage Gen2** and **Snowflake** using a **medallion architecture (Bronze → Silver → Gold)** — consolidating fragmented data sources into a single source of truth, reducing processing latency from 24 hours to near real-time, and laying the foundation for self-service analytics and future ML initiatives.
+This project builds a modern, cloud-native data platform on **Azure Data Lake Storage Gen2** and **Snowflake** using a **medallion architecture (Bronze → Silver → Gold)**, consolidating fragmented data sources into a single source of truth, reducing processing latency from 24 hours to near real-time, and laying the foundation for self-service analytics and future ML initiatives.
 
 ---
 
@@ -112,7 +112,7 @@ The Gold layer implements a star schema:
 ### Mart 
 - **mart.vw_daily_sales_analysis** — pre-aggregated daily sales view combining all three entities
 - **mart.vw_customer_product_affinity** — customer-product purchase frequency and spend patterns by month
-- 
+- **mart.vw_customer_segment_performance** — Customer segment that spends more
 
 ### Additional Snowflake Features Used
 - **Time Travel** — available for data recovery and historical analysis across all layers
