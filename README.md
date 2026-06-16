@@ -108,11 +108,40 @@ The Gold layer implements a star schema:
 - **dim_customer** — customer attributes including type, country, demographics
 - **dim_product** — product attributes including category, brand, price, rating, active status
 
-
 ### Mart 
 - **mart.vw_daily_sales_analysis** — pre-aggregated daily sales view combining all three entities
+- **mart.vw_sales_yearly_summary** — pre-aggregated yearly sales view combining all three entities
+- **mart.vw_sales_monthly_summary** — Monthly revenue trend
+- **mart.vw_sales_monthly_seasonality** — Month that performed the best in terms of revenue across observed years
+- **mart.vw_payment_method_performance** — Payment method with the highest order value
+- **mart.vw_country_sales_performance** — Country with highest revenue
+- **mart.dim_date** — date dimension table for time intelligence analysis
 - **mart.vw_customer_product_affinity** — customer-product purchase frequency and spend patterns by month
 - **mart.vw_customer_segment_performance** — Customer segment that spends more
+- **mart.vw_age_group_spending** — Age group with the highest customer spending
+- **mart.vw_demographic_sales_drivers** — Customer demographic that drives the most sales
+- **mart.vw_rfm_segmentation** — Customer value analysis showing customer with most spending, recent spending, frequent spending and the ones at risk of churning
+- **mart.vw_rfm_revenue_concentration** — Revenue contribution of the customers based on their RFM segments
+- **mart.vw_inactive_customers_90_days** — Customers who have not ordered recently to identify customers to focus marketing on and prevent churn
+- **mart.vw_customer_retention_cohort** — Customers retention after first purchase
+- **mart.vw_customer_activity_trend** — Customers purchase in the last 30-60 days and spend activity
+- **mart.vw_customer_lifecycle_snapshot** — Customers life cycle, spend activity drop analysis in the past 60 days
+- **mart.vw_product_value_performance** — Product with the most average transaction value and revenue in the past 60 days
+- **mart.vw_monthly_top_revenue_category** — Product with the highest revenue for each month across the observed years
+- **mart.vw_top_products_by_category** — Top 3 product category based on revenue
+- **mart.vw_category_revenue_share** — Category share of total revenue
+- **mart.vw_category_pareto_analysis** — Pareto Analysis: 20% of products that drive 80% of revenue
+- **mart.vw_product_revenue_growth** — Products that experienced the largest increase in revenue in the last 30, 60 days
+- **mart.vw_top_declining_products** — Top declining products in terms of revenue
+
+
+
+
+
+
+
+
+
 
 ### Additional Snowflake Features Used
 - **Time Travel** — available for data recovery and historical analysis across all layers
