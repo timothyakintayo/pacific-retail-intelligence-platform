@@ -23,8 +23,6 @@ This project builds a modern, cloud-native data platform on **Azure Data Lake St
 
 ---
 
----
-
 ## Business Questions Answered
 - Which product categories contribute most revenue?
 - Does the 80/20 Pareto principle hold across categories?
