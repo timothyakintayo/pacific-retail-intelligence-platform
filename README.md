@@ -23,6 +23,26 @@ This project builds a modern, cloud-native data platform on **Azure Data Lake St
 
 ---
 
+---
+
+## Business Questions Answered
+- Which product categories contribute most revenue?
+- Does the 80/20 Pareto principle hold across categories?
+- Which products are growing or declining?
+- Which countries contribute most revenue?
+- Which months consistently outperform others?
+- Which customer segments drive revenue?
+- Which Payment Methods has higher order values?
+- Which products have the most average transaction value in the last 60 days
+- Which product category has the highest revenue for each month across the years?
+- Which products drive the highest and least revenue?
+- Which age group contribute the most revenue?
+- Which customers generate the most value and purchase most frequently?
+- In which month do we retain customers the most (Cohort Analysis)?
+- How many customers are active, churned or new customers?
+
+---
+
 ## Architecture
 
 ```
@@ -133,15 +153,6 @@ The Gold layer implements a star schema:
 - **mart.vw_category_pareto_analysis** — Pareto Analysis: 20% of products that drive 80% of revenue
 - **mart.vw_product_revenue_growth** — Products that experienced the largest increase in revenue in the last 30, 60 days
 - **mart.vw_top_declining_products** — Top declining products in terms of revenue
-
-
-
-
-
-
-
-
-
 
 ### Additional Snowflake Features Used
 - **Time Travel** — available for data recovery and historical analysis across all layers
